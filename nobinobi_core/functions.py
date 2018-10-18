@@ -331,7 +331,7 @@ def fields_required(self, fields):
     """Used for conditionally marking fields as required."""
     for field in fields:
         if not self.cleaned_data.get(field, ''):
-            msg = forms.ValidationError(_("Ce champs est requis."))
+            msg = forms.ValidationError(_("This field is required."))
             self.add_error(field, msg)
 
 
