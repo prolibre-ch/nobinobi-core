@@ -19,15 +19,31 @@
 # -*- coding: utf-8 -*-
 import arrow
 from django import forms
-from django.http import Http404, JsonResponse
+from django.contrib import admin
+from django.contrib.admin.options import BaseModelAdmin
+from django.core.urlresolvers import reverse
+from django.db.models.constants import LOOKUP_SEP
+from django.http import Http404
+from django.http import JsonResponse
 from django.utils.translation import gettext as _
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
-from django.contrib import admin
-from django.contrib.admin.options import BaseModelAdmin
-from django.db.models.constants import LOOKUP_SEP
+
 
 # from config.settings.base import PERIODE_SIESTE, PERIODE_TYPE
+
+class RestrictStaffToAdminMiddleware(object):
+    """
+    A middleware that restricts staff members access to administration panels.
+    """
+
+    def process_request(self, request):
+        if request.path.startswith(reverse('admin:index')):
+            if request.user.is_authenticated():
+                if not request.user.is_staff:
+                    raise Http404
+            else:
+                raise Http404
 
 
 def module_exists(module_name):
@@ -355,7 +371,6 @@ def get_semaine(day: arrow) -> [arrow.arrow]:
     for jour_semaine in arrow.Arrow.range('day', start, end):
         semaine.append(jour_semaine)
     return semaine
-
 
 
 class AdminBaseWithSelectRelated(BaseModelAdmin):
