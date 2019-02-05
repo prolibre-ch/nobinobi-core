@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-18 10:58+0200\n"
-"PO-Revision-Date: 2019-01-30 12:02+0100\n"
+"PO-Revision-Date: 2019-02-05 10:56+0100\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -64,11 +64,11 @@ msgstr "Date"
 
 #: .\nobinobi_core\models.py:13
 msgid "Holiday"
-msgstr "Vacance"
+msgstr "Jour férié"
 
 #: .\nobinobi_core\models.py:14
 msgid "Holidays"
-msgstr "Vacances"
+msgstr "Jours fériés"
 
 #: .\nobinobi_core\templates\includes\messages.html:10
 msgid "Close"
