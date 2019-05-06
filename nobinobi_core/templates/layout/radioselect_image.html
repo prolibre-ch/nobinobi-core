@@ -22,24 +22,24 @@
 {% load static %}
 
 <div class="controls {{ field_class }}"{% if flat_attrs %} {{ flat_attrs|safe }}{% endif %}>
-    {% include 'layout/field_errors_block.html' %}
+  {% include 'layout/field_errors_block.html' %}
 
-    {% for choice in field.field.choices %}
-        {% if not inline_class %}
-            <div class="radio">{% endif %}
-    <label class="{% if inline_class %}radio-{{ inline_class }}{% endif %}">
-        <input type="radio"{% if choice.0|stringformat:"s" == field.value|stringformat:"s" %}
-               checked="checked"{% endif %} name="{{ field.html_name }}"
-               id="id_{{ field.html_name }}_{{ forloop.counter }}"
-               value="{{ choice.0|unlocalize }}" {{ field.field.widget.attrs|flatatt }}>
-        {% if choice.0 == None or choice.0 == "" %}
-            <img class='img-responsive img-smiley-list' src='{% static "img/smiley/question.png" %}'/>
-        {% else %}
-            <img class='img-responsive img-smiley-list' src='{% static "img/smiley/" %}{{ choice.1|unlocalize }}'/>
-        {% endif %}
-    </label>
-    {% if not inline_class %}</div>{% endif %}
-    {% endfor %}
+  {% for choice in field.field.choices %}
+    {% if not inline_class %}
+      <div class="radio">{% endif %}
+  <label class="{% if inline_class %}radio-{{ inline_class }}{% endif %}">
+    <input type="radio"{% if choice.0|stringformat:"s" == field.value|stringformat:"s" %}
+           checked="checked"{% endif %} name="{{ field.html_name }}"
+           id="id_{{ field.html_name }}_{{ forloop.counter }}"
+           value="{{ choice.0|unlocalize }}" {{ field.field.widget.attrs|flatatt }}>
+    {% if choice.0 == None or choice.0 == "" %}
+      <img class='img-fluid' width="100px" src='{% static "img/smiley/question.png" %}'/>
+    {% else %}
+      <img class='img-fluid' width="100px" src='{% static "img/smiley/" %}{{ choice.1|unlocalize }}'/>
+    {% endif %}
+  </label>
+  {% if not inline_class %}</div>{% endif %}
+  {% endfor %}
 
-    {% include 'layout/help_text.html' %}
+  {% include 'layout/help_text.html' %}
 </div>
