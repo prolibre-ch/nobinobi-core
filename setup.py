@@ -23,10 +23,10 @@ def get_version(*file_paths):
 
 version = get_version("nobinobi_core", "__init__.py")
 
-
 if sys.argv[-1] == 'publish':
     try:
         import wheel
+
         print("Wheel version: ", wheel.__version__)
     except ImportError:
         print('Wheel library missing. Please run "pip install wheel"')
@@ -51,12 +51,12 @@ setup(
     long_description=readme + '\n\n' + history,
     author='Florian Alu',
     author_email='alu@prolibre.com',
-    url='https://fadia.lan.prolibre.com:10080/alu/nobinobi-core',
+    url='https://homer.lan.prolibre.com:8400/projects/nobinobi-core',
     packages=[
         'nobinobi_core',
     ],
     include_package_data=True,
-    install_requires=["django-model-utils>=2.0","django-crispy-forms>=1.5.0", "arrow>=0.12"],
+    install_requires=["django-model-utils>=2.0", "django-crispy-forms>=1.5.0", "arrow>=0.12"],
     zip_safe=False,
     keywords='nobinobi-core',
     classifiers=[
