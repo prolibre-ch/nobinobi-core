@@ -351,8 +351,8 @@ def get_semaine(day: arrow) -> [arrow.arrow]:
 
     dateqs = arrow.Arrow.fromdate(day)
     joursemaine = dateqs.weekday()
-    start = dateqs.replace(days=-joursemaine)
-    end = dateqs.replace(days=+(4 - joursemaine))
+    start = dateqs.shift(days=-joursemaine)
+    end = dateqs.shift(days=+(4 - joursemaine))
 
     for jour_semaine in arrow.Arrow.range('day', start, end):
         semaine.append(jour_semaine)
