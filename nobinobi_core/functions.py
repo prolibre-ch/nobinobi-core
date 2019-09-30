@@ -98,7 +98,7 @@ def datejeunegenevois(an):
     mois = "09"
     jour = "01"
     date = arrow.get("%s-%s-%s" % (an, mois, jour))
-    date = date.replace(days=(-date.weekday() + 10))
+    date = date.replace(day=(-date.weekday() + 10))
     return [date.day, date.month, date.year]
 
 
