@@ -27,6 +27,7 @@ from django.http import JsonResponse
 from django.utils.translation import gettext as _
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
+from dateutil.rrule import *
 
 
 # from config.settings.base import PERIODE_SIESTE, PERIODE_TYPE
@@ -340,7 +341,7 @@ def fields_required(self, fields):
             self.add_error(field, msg)
 
 
-def get_semaine(day: arrow) -> [arrow.arrow]:
+def get_semaine(day):
     """
     permet de recuperer la semaine
     :param day:
@@ -415,3 +416,17 @@ class FilterWithSelectRelated(admin.RelatedFieldListFilter):
 
     def get_queryset(self, field):
         return field.remote_field.model._default_manager.select_related(*self.list_select_related)
+
+
+def weeks_between(start_date, end_date):
+    weeks = rrule.rrule(rrule.WEEKLY, dtstart=start_date, until=end_date)
+    return weeks.count()
+
+
+def week_span_from_date(day):
+    first_last_day_week = arrow.get(day).span('week')
+    # Business days list
+    week_dates = [r for r in rrule(DAILY, byweekday=(MO, TU, WE, TH, FR),
+                                   dtstart=first_last_day_week[0],
+                                   until=first_last_day_week[-1])]
+    return week_dates
