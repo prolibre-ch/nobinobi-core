@@ -2,18 +2,18 @@
 
 language: python
 
-python:
-  - "3.7"
-  - "3.6"
-  - "3.5"
-
-env:
-  - TOX_ENV=py37-django-30
-  - TOX_ENV=py36-django-30
-  - TOX_ENV=py35-django-30
-
 matrix:
-  fast_finish: true
+    include:
+      - stage: Tests (Python 3.7)
+        python: 3.7
+        env: TOXENV=py37-django-30
+      - stage: Tests (Python 3.6)
+        python: 3.6
+        env: TOXENV=py37-django-30
+      - stage: Tests (Python 3.5)
+        python: 3.5
+        env: TOXENV=py37-django-30
+    fast_finish: true
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install: pip install -r requirements_test.txt
