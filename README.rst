@@ -5,12 +5,20 @@ Nobinobi Core
 .. image:: https://badge.fury.io/py/nobinobi-core.svg
     :target: https://badge.fury.io/py/nobinobi-core
 
-.. image:: https://travis-ci.org/alu/nobinobi-core.svg?branch=master
-    :target: https://travis-ci.org/alu/nobinobi-core
+.. image:: https://travis-ci.org/prolibre-ch/nobinobi-core.svg?branch=master
+    :target: https://travis-ci.org/prolibre-ch/nobinobi-core
 
-.. image:: https://codecov.io/gh/alu/nobinobi-core/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/alu/nobinobi-core
-
+.. image:: https://codecov.io/gh/prolibre-ch/nobinobi-core/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/prolibre-ch/nobinobi-core
+    
+.. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/shield.svg
+     :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/
+     :alt: Updates
+     
+.. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/python-3-shield.svg
+     :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/
+     :alt: Python 3
+    
 Core Application for nobinobi
 
 Documentation
