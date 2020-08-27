@@ -1,3 +1,19 @@
+#      Copyright (C) 2020 <Florian Alu - Prolibre - https://prolibre.com
+#      This program is free software: you can redistribute it and/or modify
+#      it under the terms of the GNU Affero General Public License as
+#      published by the Free Software Foundation, either version 3 of the
+#      License, or (at your option) any later version.
+#
+#      This program is distributed in the hope that it will be useful,
+#      but WITHOUT ANY WARRANTY; without even the implied warranty of
+#      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#      GNU Affero General Public License for more details.
+#
+#      You should have received a copy of the GNU Affero General Public License
+#      along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# -*- coding: utf-8 -*-
+
 from crispy_forms.layout import Field
 from django.forms.utils import flatatt
 from django.forms.widgets import DateTimeInput, TimeInput
@@ -98,9 +114,11 @@ class InlineCheckboxesColAct(Field):
 class DateTimePicker(DateTimeInput):
     class Media:
         js = ['pluginsRequired/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js']
-        css = {'all': ('css/bootstrap.min.css',
-                       'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css',
-                       'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker-standalone.css',), }
+        css = {
+            'all': ('css/bootstrap.min.css',
+                    'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css',
+                    'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker-standalone.css',),
+        }
 
     # http://momentjs.com/docs/#/parsing/string-format/
     # http://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
@@ -200,9 +218,11 @@ class DateTimePicker(DateTimeInput):
 class TimePicker(DateTimeInput):
     class Media:
         js = ['pluginsRequired/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js']
-        css = {'all': ('css/bootstrap.min.css',
-                       'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css',
-                       'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker-standalone.css',), }
+        css = {
+            'all': ('css/bootstrap.min.css',
+                    'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css',
+                    'pluginsRequired/bootstrap-datetimepicker/css/bootstrap-datetimepicker-standalone.css',),
+        }
 
     # http://momentjs.com/docs/#/parsing/string-format/
     # http://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
@@ -325,8 +345,10 @@ class DateTimePicker2(DateTimeInput):
             if lang not in ('en', 'en-us'):
                 js.append('pluginsRequired/bootstrap-datetimepicker/locale/%s.js' % (lang))
         # js = JsFiles()
-        css = {'all': ('pluginsRequired/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
-                       'css/font-awesome.min.css',), }
+        css = {
+            'all': ('pluginsRequired/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
+                    'css/font-awesome.min.css',),
+        }
 
     # http://momentjs.com/docs/#/parsing/string-format/
     # http://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
@@ -457,8 +479,10 @@ class TimePicker2(TimeInput):
                         yield 'pluginsRequired/bootstrap-datetimepicker/locale/%s.js' % (lang)
 
         js = JsFiles()
-        css = {'all': ('pluginsRequired/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
-                       'css/font-awesome.min.css',), }
+        css = {
+            'all': ('pluginsRequired/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css',
+                    'css/font-awesome.min.css',),
+        }
 
     # http://momentjs.com/docs/#/parsing/string-format/
     # http://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
