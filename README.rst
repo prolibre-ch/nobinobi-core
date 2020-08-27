@@ -5,11 +5,11 @@ Nobinobi Core
 .. image:: https://badge.fury.io/py/nobinobi-core.svg
     :target: https://badge.fury.io/py/nobinobi-core
 
-.. image:: https://travis-ci.org/alu/nobinobi-core.svg?branch=master
-    :target: https://travis-ci.org/alu/nobinobi-core
+.. image:: https://travis-ci.org/prolibre-ch/nobinobi-core.svg?branch=master
+    :target: https://travis-ci.org/prolibre-ch/nobinobi-core
 
-.. image:: https://codecov.io/gh/alu/nobinobi-core/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/alu/nobinobi-core
+.. image:: https://codecov.io/gh/prolibre-ch/nobinobi-core/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/prolibre-ch/nobinobi-core
 
 Core Application for nobinobi
 
