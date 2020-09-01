@@ -52,7 +52,7 @@ Add Nobinobi Core's URL patterns:
 
     urlpatterns = [
         ...
-        url(r'^', include(nobinobi_core_urls)),
+        path('', include(nobinobi_core_urls)),
         ...
     ]
 
