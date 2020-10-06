@@ -20,10 +20,7 @@ from django.contrib import admin, messages
 from nobinobi_core.forms import AddOfficialHolidayForm
 from nobinobi_core.models import Holiday
 
-try:
-    from django.urls import reverse
-except:
-    from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.views.generic import FormView
