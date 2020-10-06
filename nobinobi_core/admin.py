@@ -11,7 +11,7 @@
 #
 #      You should have received a copy of the GNU Affero General Public License
 #      along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+#
 # -*- coding: utf-8 -*-
 from django.contrib import admin
 from django.contrib import messages
@@ -22,7 +22,7 @@ from django.db import router
 from django.template.response import TemplateResponse
 from django.utils.translation import gettext as _, gettext_lazy
 
-from .models import Holiday
+from .models import Holiday, Company, CompanyClosure
 
 
 # Register your models here.
@@ -45,7 +45,7 @@ def delete_selected(modeladmin, request, queryset):
     # Populate deletable_objects, a data structure of all related objects that
     # will also be deleted.
     deletable_objects, model_count, perms_needed, protected = get_deleted_objects(
-        queryset, opts, request.user, modeladmin.admin_site, using)
+        queryset, request.user, modeladmin.admin_site)
 
     # The user has already confirmed the deletion.
     # Do the deletion and return None to display the change list view again.
@@ -100,5 +100,28 @@ delete_selected.short_description = gettext_lazy("Delete selected %(verbose_name
 
 @admin.register(Holiday)
 class HolidayAdmin(admin.ModelAdmin):
-    list_display = ("name", "date")
-    list_filter = ("date",)
+    list_display = ('id', 'name', 'date')
+    list_filter = ('date',)
+    search_fields = ('name',)
+
+
+@admin.register(Company)
+class CompanyAdmin(admin.ModelAdmin):
+    list_display = ('id', 'created', 'modified', 'name', 'short_code')
+    list_filter = ('created', 'modified')
+    search_fields = ('name',)
+    actions = ["delete_selected"]
+
+
+@admin.register(CompanyClosure)
+class CompanyClosureAdmin(admin.ModelAdmin):
+    list_display = (
+        'id',
+        'created',
+        'modified',
+        'from_date',
+        'end_date',
+        'desc',
+        'company',
+    )
+    list_filter = ('created', 'modified', 'from_date', 'end_date', 'company')

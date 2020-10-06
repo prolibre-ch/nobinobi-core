@@ -10,16 +10,16 @@ Nobinobi Core
 
 .. image:: https://codecov.io/gh/prolibre-ch/nobinobi-core/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/prolibre-ch/nobinobi-core
-    
+
 .. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/shield.svg
      :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/
      :alt: Updates
-     
+
 .. image:: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/python-3-shield.svg
      :target: https://pyup.io/repos/github/prolibre-ch/nobinobi-core/
      :alt: Python 3
-    
-Core Application for nobinobi
+
+Core for application Nobinobi
 
 Documentation
 -------------
@@ -52,7 +52,7 @@ Add Nobinobi Core's URL patterns:
 
     urlpatterns = [
         ...
-        url(r'^', include(nobinobi_core_urls)),
+        path('', include(nobinobi_core_urls)),
         ...
     ]
 
@@ -71,6 +71,16 @@ Does the code actually work?
     source <YOURVIRTUALENV>/bin/activate
     (myenv) $ pip install tox
     (myenv) $ tox
+
+
+Development commands
+---------------------
+
+::
+
+    pip install -r requirements_dev.txt
+    invoke -l
+
 
 Credits
 -------

@@ -23,10 +23,10 @@ def get_version(*file_paths):
 
 version = get_version("nobinobi_core", "__init__.py")
 
+
 if sys.argv[-1] == 'publish':
     try:
         import wheel
-
         print("Wheel version: ", wheel.__version__)
     except ImportError:
         print('Wheel library missing. Please run "pip install wheel"')
@@ -43,20 +43,21 @@ if sys.argv[-1] == 'tag':
 
 readme = open('README.rst').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+requirements = open('requirements.txt').readlines()
 
 setup(
     name='nobinobi-core',
     version=version,
-    description="""Core Application for nobinobi""",
+    description="""Core for application Nobinobi""",
     long_description=readme + '\n\n' + history,
     author='Florian Alu',
     author_email='alu@prolibre.com',
-    url='https://github.com/prolibre-ch/nobinobi-core.git',
+    url='https://github.com/prolibre-ch/nobinobi-core',
     packages=[
         'nobinobi_core',
     ],
     include_package_data=True,
-    install_requires=["django>3.0,<=3.1", "django-model-utils==4.0.0", "django-crispy-forms==1.9.2", "arrow==0.16.0", "django-bootstrap-datepicker-plus==3.0.5"],
+    install_requires=requirements,
     zip_safe=False,
     keywords='nobinobi-core',
     classifiers=[

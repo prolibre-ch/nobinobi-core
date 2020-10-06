@@ -16,6 +16,7 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from model_utils.models import TimeStampedModel
 
 
 class Holiday(models.Model):
@@ -30,3 +31,38 @@ class Holiday(models.Model):
     def __str__(self):  # __unicode__ on Python 2
         # Returns the person's full name.
         return "{} - {}".format(self.name, self.date)
+
+
+class Company(TimeStampedModel):
+    """ models for Company """
+    name = models.CharField(_("Name"), max_length=100, unique=True)
+    short_code = models.SlugField(_("Short code"), unique=True)
+
+    class Meta:
+        ordering = ('name', 'short_code',)
+        verbose_name = _('Company')
+        verbose_name_plural = _('Companies')
+        unique_together = ("name", "short_code")
+
+    def __str__(self):
+        return "{} - {}".format(self.name, self.short_code)
+
+
+class CompanyClosure(TimeStampedModel):
+    """ Models for Company closure """
+    from_date = models.DateField(_("From date"))
+    end_date = models.DateField(_("End date"))
+    desc = models.CharField(_("Description"), max_length=100, blank=True, null=True)
+    company = models.ForeignKey(
+        verbose_name=_("Company"),
+        to=Company,
+        on_delete=models.CASCADE,
+    )
+
+    class Meta:
+        ordering = ('from_date', 'end_date')
+        verbose_name = _('Company closure')
+        verbose_name_plural = _('Company closures')
+
+    def __str__(self):
+        return "{} ({} | {})".format(self.company.name, self.from_date, self.end_date)
