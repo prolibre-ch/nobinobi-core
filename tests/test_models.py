@@ -14,7 +14,7 @@ from django.utils import timezone
 from nobinobi_core.models import Holiday, Company, CompanyClosure
 
 
-class TestNobinobi_core(TestCase):
+class TestNobinobiCoreModels(TestCase):
 
     def setUp(self):
         self.holiday = Holiday(name="My entry title", date=timezone.localdate())

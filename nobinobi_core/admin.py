@@ -45,7 +45,7 @@ def delete_selected(modeladmin, request, queryset):
     # Populate deletable_objects, a data structure of all related objects that
     # will also be deleted.
     deletable_objects, model_count, perms_needed, protected = get_deleted_objects(
-        queryset, opts, request.user, modeladmin.admin_site, using)
+        queryset, request.user, modeladmin.admin_site)
 
     # The user has already confirmed the deletion.
     # Do the deletion and return None to display the change list view again.
@@ -110,6 +110,7 @@ class CompanyAdmin(admin.ModelAdmin):
     list_display = ('id', 'created', 'modified', 'name', 'short_code')
     list_filter = ('created', 'modified')
     search_fields = ('name',)
+    actions = ["delete_selected"]
 
 
 @admin.register(CompanyClosure)
