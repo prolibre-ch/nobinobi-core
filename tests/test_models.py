@@ -10,7 +10,7 @@ Tests for `nobinobi-core` models module.
 
 from django.test import TestCase
 
-from nobinobi_core import models
+# from nobinobi_core import models
 
 
 class TestNobinobi_core(TestCase):
