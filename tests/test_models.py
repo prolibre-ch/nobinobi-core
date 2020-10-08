@@ -11,14 +11,14 @@ Tests for `nobinobi-core` models module.
 from django.test import TestCase
 from django.utils import timezone
 
-from nobinobi_core.models import Holiday, Company, CompanyClosure
+from nobinobi_core.models import Holiday, Organisations, CompanyClosure
 
 
 class TestNobinobiCoreModels(TestCase):
 
     def setUp(self):
         self.holiday = Holiday(name="My entry title", date=timezone.localdate())
-        self.company = Company(name="Prolibre", short_code="PRO")
+        self.company = Organisations(name="Prolibre", short_code="PRO")
         self.company_closure = CompanyClosure(from_date=timezone.localdate(), end_date=timezone.localdate(),
                                               company=self.company)
 

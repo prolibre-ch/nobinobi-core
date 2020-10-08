@@ -22,7 +22,7 @@ from django.db import router
 from django.template.response import TemplateResponse
 from django.utils.translation import gettext as _, gettext_lazy
 
-from .models import Holiday, Company, CompanyClosure
+from .models import Holiday, Organisation, OrganisationClosure
 
 
 # Register your models here.
@@ -105,16 +105,16 @@ class HolidayAdmin(admin.ModelAdmin):
     search_fields = ('name',)
 
 
-@admin.register(Company)
-class CompanyAdmin(admin.ModelAdmin):
+@admin.register(Organisation)
+class OrganisationAdmin(admin.ModelAdmin):
     list_display = ('id', 'created', 'modified', 'name', 'short_code')
     list_filter = ('created', 'modified')
     search_fields = ('name',)
     actions = ["delete_selected"]
 
 
-@admin.register(CompanyClosure)
-class CompanyClosureAdmin(admin.ModelAdmin):
+@admin.register(OrganisationClosure)
+class OrganisationClosureAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'created',
@@ -122,6 +122,6 @@ class CompanyClosureAdmin(admin.ModelAdmin):
         'from_date',
         'end_date',
         'desc',
-        'company',
+        'organisation',
     )
-    list_filter = ('created', 'modified', 'from_date', 'end_date', 'company')
+    list_filter = ('created', 'modified', 'from_date', 'end_date', 'organisation')

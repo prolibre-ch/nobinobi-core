@@ -21,7 +21,7 @@ from django.test import RequestFactory, TestCase
 from django.utils import timezone
 
 from nobinobi_core.admin import CompanyAdmin, delete_selected
-from nobinobi_core.models import Company, Holiday, CompanyClosure
+from nobinobi_core.models import Organisations, Holiday, CompanyClosure
 
 
 class MockSuperUser:
@@ -51,25 +51,25 @@ class TestNobinobiCoreAdmin(TestCase):
 
     def setUp(self):
         site = AdminSite()
-        self.admin = CompanyAdmin(Company, site)
+        self.admin = CompanyAdmin(Organisations, site)
 
     @classmethod
     def setUpTestData(cls):
-        cls.company = Company.objects.create(name="Prolibre", short_code="PRO")
+        cls.company = Organisations.objects.create(name="Prolibre", short_code="PRO")
 
     def test_delete_model_company(self):
-        obj = Company.objects.get(name="Prolibre")
+        obj = Organisations.objects.get(name="Prolibre")
         self.admin.delete_model(request, obj)
 
-        deleted = Company.objects.filter(name="Prolibre").first()
+        deleted = Organisations.objects.filter(name="Prolibre").first()
         self.assertEqual(deleted, None)
 
     def test_delete_model_with_deleted_method(self):
-        obj = Company.objects.filter(name="Prolibre")
+        obj = Organisations.objects.filter(name="Prolibre")
         request.POST = request.POST.copy()
         request.POST['post'] = True
         self.request = request
         delete_selected(self.admin, request, obj)
 
-        deleted = Company.objects.filter(name="Prolibre").first()
+        deleted = Organisations.objects.filter(name="Prolibre").first()
         self.assertEqual(deleted, None)
