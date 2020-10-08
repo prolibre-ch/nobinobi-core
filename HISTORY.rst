@@ -6,7 +6,7 @@ History
 0.1.1 (2020-10-06)
 ++++++++++++++++++
 
-* Add company & Company closure
+* Add organisation & Organisation closure
 * Restruct package for better comprehension
 * Add tests
 

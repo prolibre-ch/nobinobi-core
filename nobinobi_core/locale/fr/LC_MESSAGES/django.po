@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-06 15:29+0200\n"
-"PO-Revision-Date: 2020-10-06 15:31+0200\n"
+"PO-Revision-Date: 2020-10-08 14:32+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -75,12 +75,12 @@ msgid "Short code"
 msgstr "Nom abrégé"
 
 #: .\nobinobi_core\models.py:43 .\nobinobi_core\models.py:57
-msgid "Company"
-msgstr "Société"
+msgid "Organisation"
+msgstr "Organisation"
 
 #: .\nobinobi_core\models.py:44
-msgid "Companies"
-msgstr "Sociétés"
+msgid "Organisations"
+msgstr "Organisations"
 
 #: .\nobinobi_core\models.py:53
 msgid "From date"
@@ -95,12 +95,12 @@ msgid "Description"
 msgstr "Description"
 
 #: .\nobinobi_core\models.py:64
-msgid "Company closure"
-msgstr "Fermeture de l’entreprise"
+msgid "Organisation closure"
+msgstr "Fermeture de l’organisation"
 
 #: .\nobinobi_core\models.py:65
-msgid "Company closures"
-msgstr "Fermetures de l’entreprises"
+msgid "Organisation closures"
+msgstr "Fermetures des organisations"
 
 #: .\nobinobi_core\templates\includes\messages.html:10
 msgid "Close"
