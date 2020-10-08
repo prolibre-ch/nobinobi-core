@@ -16,12 +16,10 @@
 from django.contrib.admin.sites import AdminSite
 from django.contrib.auth.models import User
 from django.contrib.messages.storage.fallback import FallbackStorage
-from django.core.exceptions import PermissionDenied
 from django.test import RequestFactory, TestCase
-from django.utils import timezone
 
-from nobinobi_core.admin import CompanyAdmin, delete_selected
-from nobinobi_core.models import Organisations, Holiday, CompanyClosure
+from nobinobi_core.admin import OrganisationAdmin, delete_selected
+from nobinobi_core.models import Organisation
 
 
 class MockSuperUser:
@@ -51,25 +49,27 @@ class TestNobinobiCoreAdmin(TestCase):
 
     def setUp(self):
         site = AdminSite()
-        self.admin = CompanyAdmin(Organisations, site)
+        self.admin = OrganisationAdmin(Organisation, site)
 
     @classmethod
     def setUpTestData(cls):
-        cls.company = Organisations.objects.create(name="Prolibre", short_code="PRO")
+        cls.organisation = Organisation.objects.create(name="Prolibre", short_code="PRO")
 
-    def test_delete_model_company(self):
-        obj = Organisations.objects.get(name="Prolibre")
+    def test_delete_model_organisation(self):
+        obj = Organisation.objects.get(name="Prolibre")
         self.admin.delete_model(request, obj)
 
-        deleted = Organisations.objects.filter(name="Prolibre").first()
+        deleted = Organisation.objects.filter(name="Prolibre").first()
         self.assertEqual(deleted, None)
 
     def test_delete_model_with_deleted_method(self):
-        obj = Organisations.objects.filter(name="Prolibre")
+        obj = Organisation.objects.filter(name="Prolibre")
+        user = User.objects.create(id=1, username="Test", is_active=True, is_staff=True, is_superuser=True)
         request.POST = request.POST.copy()
+        request.user = user
         request.POST['post'] = True
         self.request = request
         delete_selected(self.admin, request, obj)
 
-        deleted = Organisations.objects.filter(name="Prolibre").first()
+        deleted = Organisation.objects.filter(name="Prolibre").first()
         self.assertEqual(deleted, None)

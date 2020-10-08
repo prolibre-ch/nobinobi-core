@@ -11,27 +11,27 @@ Tests for `nobinobi-core` models module.
 from django.test import TestCase
 from django.utils import timezone
 
-from nobinobi_core.models import Holiday, Organisations, CompanyClosure
+from nobinobi_core.models import Holiday, Organisation, OrganisationClosure
 
 
 class TestNobinobiCoreModels(TestCase):
 
     def setUp(self):
         self.holiday = Holiday(name="My entry title", date=timezone.localdate())
-        self.company = Organisations(name="Prolibre", short_code="PRO")
-        self.company_closure = CompanyClosure(from_date=timezone.localdate(), end_date=timezone.localdate(),
-                                              company=self.company)
+        self.organisation = Organisation(name="Prolibre", short_code="PRO")
+        self.organisation_closure = OrganisationClosure(from_date=timezone.localdate(), end_date=timezone.localdate(),
+                                              organisation=self.organisation)
 
     def test_str_representation_holiday(self):
         self.assertEqual(str(self.holiday), "{} - {}".format(self.holiday.name, self.holiday.date))
 
-    def test_str_representation_company(self):
-        self.assertEqual(str(self.company), "{} - {}".format(self.company.name, self.company.short_code))
+    def test_str_representation_organisation(self):
+        self.assertEqual(str(self.organisation), "{} - {}".format(self.organisation.name, self.organisation.short_code))
 
-    def test_str_representation_company_closure(self):
-        self.assertEqual(str(self.company_closure),
-                         "{} ({} | {})".format(self.company.name, self.company_closure.from_date,
-                                               self.company_closure.end_date))
+    def test_str_representation_organisation_closure(self):
+        self.assertEqual(str(self.organisation_closure),
+                         "{} ({} | {})".format(self.organisation.name, self.organisation_closure.from_date,
+                                               self.organisation_closure.end_date))
 
     def tearDown(self):
         pass
