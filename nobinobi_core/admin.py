@@ -110,7 +110,6 @@ class OrganisationAdmin(admin.ModelAdmin):
     list_display = ('id', 'created', 'modified', 'name', 'short_code')
     list_filter = ('created', 'modified')
     search_fields = ('name',)
-    actions = ["delete_selected"]
 
 
 @admin.register(OrganisationClosure)
