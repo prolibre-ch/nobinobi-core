@@ -3,6 +3,12 @@
 History
 -------
 
+0.1.3 (2020-10-12)
+++++++++++++++++++
+
+* Fix bug in migrate
+* Add traduction FR in package
+
 0.1.2 (2020-10-07)
 ++++++++++++++++++
 
