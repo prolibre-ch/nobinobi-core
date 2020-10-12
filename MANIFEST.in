@@ -4,4 +4,4 @@ include HISTORY.rst
 include LICENSE
 include README.rst
 include requirements*.txt
-recursive-include nobinobi_core *.html *.png *.gif *js *.css *jpg *jpeg *svg *py *json *woff *woff2 *ttf *ico
+recursive-include nobinobi_core *.html *.png *.gif *js *.css *jpg *jpeg *svg *py *json *woff *woff2 *ttf *ico *mo
