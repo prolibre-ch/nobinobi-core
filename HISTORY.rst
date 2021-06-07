@@ -4,7 +4,7 @@ History
 -------
 
 0.1.4.1 (2021-06-07)
-++++++++++++++++++
+++++++++++++++++++++
 
 * Update requirements
 * Update django for security fix
