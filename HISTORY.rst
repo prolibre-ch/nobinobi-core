@@ -3,8 +3,15 @@
 History
 -------
 
+0.1.4.2 (2021-07-20)
+++++++++++++++++++++++
+
+* Update requirements
+* 518f8e3 - Fix for new django version
+* 93cba01 - Add tracker to Holiday and OrganisationClosure
+
 0.1.4.1 (2021-06-07)
-++++++++++++++++++
+++++++++++++++++++++
 
 * Update requirements
 * Update django for security fix
