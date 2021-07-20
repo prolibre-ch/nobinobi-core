@@ -22,3 +22,4 @@ class NobinobiCoreConfig(AppConfig):
     name = 'nobinobi_core'
     verbose_name = _("Core")
     verbose_name_plural = _("Core")
+    default_auto_field = 'django.db.models.AutoField'

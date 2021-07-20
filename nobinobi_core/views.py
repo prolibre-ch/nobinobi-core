@@ -15,17 +15,15 @@
 # -*- coding: utf-8 -*-
 
 import arrow
-from django.contrib import admin, messages
+from django.contrib import messages
+from django.db import IntegrityError
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.utils.translation import gettext as _
+from django.views.generic import FormView
 
 from nobinobi_core.forms import AddOfficialHolidayForm
 from nobinobi_core.models import Holiday
-
-from django.urls import reverse
-from django.db import IntegrityError
-from django.http import HttpResponseRedirect
-from django.views.generic import FormView
-from django.utils.translation import gettext as _
-
 from .functions import holidays
 
 
@@ -36,10 +34,8 @@ class HolidayAddOffical(FormView):
     form_class = AddOfficialHolidayForm
 
     def get_context_data(self, **kwargs):
-        context_admin = admin.site.each_context(self.request)
-        context_view = super(HolidayAddOffical, self).get_context_data(**kwargs)
-        context_admin['title'] = _('Add official holidays')
-        context = {**context_admin, **context_view}
+        context = super(HolidayAddOffical, self).get_context_data(**kwargs)
+        context['title'] = _('Add official holidays')
         return context
 
     def form_valid(self, form):
@@ -48,9 +44,15 @@ class HolidayAddOffical(FormView):
             try:
                 jf = Holiday(name=L[i], date=arrow.Arrow.strptime(F[i], "%d/%m/%Y").date())
                 jf.save()
-                messages.success(self.request, _("The day {0} ({1}) has been added to the database.").format(L[i], arrow.Arrow.strptime(F[i], "%d/%m/%Y").date()))
+                messages.success(self.request, _("The day {0} ({1}) has been added to the database.").format(L[i],
+                                                                                                             arrow.Arrow.strptime(
+                                                                                                                 F[i],
+                                                                                                                 "%d/%m/%Y").date()))
             except IntegrityError:
-                messages.error(self.request, _("The day {0} ({1}) already exists in the database.").format(L[i], arrow.Arrow.strptime(F[i], "%d/%m/%Y").date()))
+                messages.error(self.request, _("The day {0} ({1}) already exists in the database.").format(L[i],
+                                                                                                           arrow.Arrow.strptime(
+                                                                                                               F[i],
+                                                                                                               "%d/%m/%Y").date()))
         return HttpResponseRedirect(reverse("nobinobi_core:add_official_holiday"))
 
     def form_invalid(self, form):
