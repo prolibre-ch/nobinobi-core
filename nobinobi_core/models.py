@@ -16,12 +16,14 @@
 
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from model_utils import FieldTracker
 from model_utils.models import TimeStampedModel
 
 
 class Holiday(models.Model):
     name = models.CharField(_("Name"), max_length=50)
     date = models.DateField(_("Date"))
+    tracker = FieldTracker(fields=["date"])
 
     class Meta:
         ordering = ['date']
@@ -53,6 +55,8 @@ class OrganisationClosure(TimeStampedModel):
     from_date = models.DateField(_("From date"))
     end_date = models.DateField(_("End date"))
     desc = models.CharField(_("Description"), max_length=100, blank=True, null=True)
+    tracker = FieldTracker()
+
     organisation = models.ForeignKey(
         verbose_name=_("Organisation"),
         to=Organisation,
