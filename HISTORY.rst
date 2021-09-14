@@ -3,6 +3,12 @@
 History
 -------
 
+0.1.4.3 (2021-09-14)
+++++++++++++++++++++++
+
+* Update requirements
+* dfcaaa6 - add mixins to block user not connected and update context for compatibility
+
 0.1.4.2 (2021-07-20)
 ++++++++++++++++++++++
 
