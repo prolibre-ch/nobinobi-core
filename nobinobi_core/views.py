@@ -16,6 +16,7 @@
 
 import arrow
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -27,7 +28,7 @@ from nobinobi_core.models import Holiday
 from .functions import holidays
 
 
-class HolidayAddOffical(FormView):
+class HolidayAddOffical(FormView, LoginRequiredMixin):
     """permet d'ajouter les jour ferie de l'annee dans la base de donnee"""
 
     template_name = "nobinobi_core/add_official_holiday.html"
@@ -36,6 +37,7 @@ class HolidayAddOffical(FormView):
     def get_context_data(self, **kwargs):
         context = super(HolidayAddOffical, self).get_context_data(**kwargs)
         context['title'] = _('Add official holidays')
+        context.update(admin.site.each_context(self.request))
         return context
 
     def form_valid(self, form):
