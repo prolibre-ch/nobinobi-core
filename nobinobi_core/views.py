@@ -15,7 +15,7 @@
 # -*- coding: utf-8 -*-
 
 import arrow
-from django.contrib import messages
+from django.contrib import messages, admin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import IntegrityError
 from django.http import HttpResponseRedirect
