@@ -50,7 +50,9 @@ class HolidayAddOffical(FormView, LoginRequiredMixin):
         for i in range(0, len(F)):
             holiday_date = datetime.datetime.strptime(F[i], "%d/%m/%Y").date()
             holiday_name = capfirst(L[i].lower())
-            holiday, created = Holiday.objects.get_or_create(name=holiday_name, date=holiday_date)
+            holiday, created = Holiday.objects.get_or_create(date=holiday_date, defaults={
+                "name": holiday_name,
+            })
             if created:
                 messages.success(self.request,
                                  _("The day {0} ({1}) has been added to the database.").format(holiday_name,

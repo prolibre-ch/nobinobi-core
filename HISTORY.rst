@@ -3,6 +3,11 @@
 History
 -------
 
+0.1.4.6 (2021-09-16)
+++++++++++++++++++++++
+
+* 5c6aace - Fix bug when add holiday but not same name but exist
+
 0.1.4.5 (2021-09-16)
 ++++++++++++++++++++++
 
