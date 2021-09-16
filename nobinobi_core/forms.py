@@ -13,14 +13,24 @@
 #      along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 # -*- coding: utf-8 -*-
+
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from django import forms
+from django.utils import timezone
 from django.utils.translation import gettext as _
+
+
+def year_choices():
+    now = timezone.localdate()
+    min_date = now.year - 1
+    max_date = now.year + 2
+    return [(r, r) for r in range(min_date, max_date)], now
 
 
 class AddOfficialHolidayForm(forms.Form):
     """form de validation pour l'ajout"""
+    year = forms.ChoiceField(label=_("Year"), choices=year_choices()[0], initial=year_choices()[1])
 
     def __init__(self, *args, **kwargs):
         super(AddOfficialHolidayForm, self).__init__(*args, **kwargs)

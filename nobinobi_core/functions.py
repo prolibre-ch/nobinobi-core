@@ -13,21 +13,22 @@
 #      along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+# from config.settings.base import PERIODE_SIESTE, PERIODE_TYPE
+from typing import Tuple, List
+
 # -*- coding: utf-8 -*-
 import arrow
+from dateutil.rrule import *
 from django import forms
 from django.contrib import admin
 from django.contrib.admin.options import BaseModelAdmin
 from django.db.models.constants import LOOKUP_SEP
 from django.http import Http404
 from django.http import JsonResponse
+from django.utils import timezone
 from django.utils.translation import gettext as _
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
-from dateutil.rrule import *
-
-
-# from config.settings.base import PERIODE_SIESTE, PERIODE_TYPE
 
 
 def module_exists(module_name):
@@ -172,7 +173,6 @@ def joursferiesliste(an, sd=0):
     F = []  # =liste des dates des jours feries en date-liste d=[j,m,a]
     L = []  # =liste des libelles du jour ferie
     dp = datepaques(an)
-    djg = datejeunegenevois(an)
 
     # Jour de l'an
     d = [1, 1, an]
@@ -233,12 +233,13 @@ def joursferiesliste(an, sd=0):
     return F, L
 
 
-def holidays(an, sd=0, sep='/'):
+def holidays(an: int = timezone.localdate().year, sd: int = 0, sep: str = '/') -> Tuple[
+    List[str], List[str], List[str]]:
     """Liste des jours fériés France en date-chaine de l'année an (nb entier).
-         sd=0 (=defaut): tous les jours fériés.
-         sd=1: idem sans les sammedis-dimanches.
-         sd=2: tous + les 2 jours fériés supplémentaires d'Alsace-Moselle.
-         sd=3: idem sd=2 sans les samedis-dimanches"""
+        sd=0 (=defaut): tous les jours fériés.
+        sd=1: idem sans les sammedis-dimanches.
+        sd=2: tous + les 2 jours fériés supplémentaires d'Alsace-Moselle.
+        sd=3: idem sd=2 sans les samedis-dimanches"""
     C = []
     J = []
     F, L = joursferiesliste(an, sd)

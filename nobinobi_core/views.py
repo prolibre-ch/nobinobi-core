@@ -13,13 +13,13 @@
 #      along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 # -*- coding: utf-8 -*-
+import datetime
 
-import arrow
 from django.contrib import messages, admin
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.db import IntegrityError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.utils.text import capfirst
 from django.utils.translation import gettext as _
 from django.views.generic import FormView
 
@@ -36,26 +36,30 @@ class HolidayAddOffical(FormView, LoginRequiredMixin):
 
     def get_context_data(self, **kwargs):
         context = super(HolidayAddOffical, self).get_context_data(**kwargs)
-        context['title'] = _('Add official holidays')
         context.update(admin.site.each_context(self.request))
+        context['title'] = _('Add official holidays')
         return context
 
     def form_valid(self, form):
-        F, J, L = holidays(arrow.now(tz="Europe/Paris").year, 3, '/')
+        year_selected = int(form.cleaned_data["year"])
+        if year_selected:
+            F, J, L = holidays(an=year_selected, sd=2)
+        else:
+            F, J, L = holidays(sd=2)
+
         for i in range(0, len(F)):
-            try:
-                jf = Holiday(name=L[i], date=arrow.Arrow.strptime(F[i], "%d/%m/%Y").date())
-                jf.save()
-                messages.success(self.request, _("The day {0} ({1}) has been added to the database.").format(L[i],
-                                                                                                             arrow.Arrow.strptime(
-                                                                                                                 F[i],
-                                                                                                                 "%d/%m/%Y").date()))
-            except IntegrityError:
-                messages.error(self.request, _("The day {0} ({1}) already exists in the database.").format(L[i],
-                                                                                                           arrow.Arrow.strptime(
-                                                                                                               F[i],
-                                                                                                               "%d/%m/%Y").date()))
-        return HttpResponseRedirect(reverse("nobinobi_core:add_official_holiday"))
+            holiday_date = datetime.datetime.strptime(F[i], "%d/%m/%Y").date()
+            holiday_name = capfirst(L[i].lower())
+            holiday, created = Holiday.objects.get_or_create(name=holiday_name, date=holiday_date)
+            if created:
+                messages.success(self.request,
+                                 _("The day {0} ({1}) has been added to the database.").format(holiday_name,
+                                                                                               holiday_date))
+            else:
+                messages.error(self.request,
+                               _("The day {0} ({1}) already exists in the database.").format(holiday_name,
+                                                                                             holiday_date))
+        return HttpResponseRedirect(reverse("admin:nobinobi_core_holiday_changelist"))
 
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form=form))

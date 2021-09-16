@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-18 10:57+0200\n"
+"POT-Creation-Date: 2021-09-16 14:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,77 +18,112 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\nobinobi_core\admin.py:65
+#: .\admin.py:61
 #, python-format
 msgid "Successfully deleted %(count)d %(items)s."
 msgstr ""
 
-#: .\nobinobi_core\admin.py:74
+#: .\admin.py:70
 #, python-format
 msgid "Cannot delete %(name)s"
 msgstr ""
 
-#: .\nobinobi_core\admin.py:76
+#: .\admin.py:72
 msgid "Are you sure?"
 msgstr ""
 
-#: .\nobinobi_core\admin.py:102
+#: .\admin.py:98
 #, python-format
 msgid "Delete selected %(verbose_name_plural)s"
 msgstr ""
 
-#: .\nobinobi_core\apps.py:8 .\nobinobi_core\apps.py:9
+#: .\apps.py:23 .\apps.py:24
 msgid "Core"
 msgstr ""
 
-#: .\nobinobi_core\forms.py:19
+#: .\forms.py:33
+msgid "Year"
+msgstr ""
+
+#: .\forms.py:43
 msgid "Submit"
 msgstr ""
 
-#: .\nobinobi_core\functions.py:285
+#: .\functions.py:289
 #, python-format
 msgid "Empty list and '%(class_name)s.allow_empty' is False."
 msgstr ""
 
-#: .\nobinobi_core\functions.py:334
+#: .\functions.py:338
 msgid "This field is required."
 msgstr ""
 
-#: .\nobinobi_core\models.py:8
+#: .\models.py:24 .\models.py:40
 msgid "Name"
 msgstr ""
 
-#: .\nobinobi_core\models.py:9
+#: .\models.py:25
 msgid "Date"
 msgstr ""
 
-#: .\nobinobi_core\models.py:13
+#: .\models.py:30
 msgid "Holiday"
 msgstr ""
 
-#: .\nobinobi_core\models.py:14
+#: .\models.py:31
 msgid "Holidays"
 msgstr ""
 
-#: .\nobinobi_core\templates\includes\messages.html:10
+#: .\models.py:41
+msgid "Short code"
+msgstr ""
+
+#: .\models.py:45 .\models.py:61
+msgid "Organisation"
+msgstr ""
+
+#: .\models.py:46
+msgid "Organisations"
+msgstr ""
+
+#: .\models.py:55
+msgid "From date"
+msgstr ""
+
+#: .\models.py:56
+msgid "End date"
+msgstr ""
+
+#: .\models.py:57
+msgid "Description"
+msgstr ""
+
+#: .\models.py:68
+msgid "Organisation closure"
+msgstr ""
+
+#: .\models.py:69
+msgid "Organisation closures"
+msgstr ""
+
+#: .\templates\includes\messages.html:10
 msgid "Close"
 msgstr ""
 
-#: .\nobinobi_core\templates\nobinobi_core\add_official_holiday.html:10
-#: .\nobinobi_core\views.py:48
+#: .\templates\nobinobi_core\add_official_holiday.html:10 .\views.py:40
 msgid "Add official holidays"
 msgstr ""
 
-#: .\nobinobi_core\templates\nobinobi_core\add_official_holiday.html:12
-msgid "This form allows you to add the holidays of the current year."
+#: .\templates\nobinobi_core\add_official_holiday.html:12
+msgid "This form allows you to add the holidays for the selected year."
 msgstr ""
 
-#: .\nobinobi_core\views.py:58
+#: .\views.py:56
 #, python-brace-format
 msgid "The day {0} ({1}) has been added to the database."
 msgstr ""
 
-#: .\nobinobi_core\views.py:60
+#: .\views.py:60
 #, python-brace-format
 msgid "The day {0} ({1}) already exists in the database."
 msgstr ""

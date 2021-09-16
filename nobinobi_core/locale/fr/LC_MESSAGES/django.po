@@ -7,120 +7,123 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-06 15:29+0200\n"
-"PO-Revision-Date: 2020-10-08 14:32+0200\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2021-09-16 14:42+0200\n"
+"PO-Revision-Date: 2021-09-16 14:43+0200\n"
+"Last-Translator: Florian Alu <fla@grapps.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
-#: .\nobinobi_core\admin.py:61
+#: .\admin.py:61
 #, python-format
 msgid "Successfully deleted %(count)d %(items)s."
 msgstr "%(count)d %(items)s supprimé avec succès."
 
-#: .\nobinobi_core\admin.py:70
+#: .\admin.py:70
 #, python-format
 msgid "Cannot delete %(name)s"
 msgstr "Impossible de supprimer %(name)s"
 
-#: .\nobinobi_core\admin.py:72
+#: .\admin.py:72
 msgid "Are you sure?"
 msgstr "Êtes-vous sûr ?"
 
-#: .\nobinobi_core\admin.py:98
+#: .\admin.py:98
 #, python-format
 msgid "Delete selected %(verbose_name_plural)s"
 msgstr "Supprimer sélectionné %(verbose_name_plural)s"
 
-#: .\nobinobi_core\apps.py:23 .\nobinobi_core\apps.py:24
+#: .\apps.py:23 .\apps.py:24
 msgid "Core"
 msgstr "Base"
 
-#: .\nobinobi_core\forms.py:33
+#: .\forms.py:33
+msgid "Year"
+msgstr "Année"
+
+#: .\forms.py:43
 msgid "Submit"
 msgstr "Envoyer"
 
-#: .\nobinobi_core\functions.py:288
+#: .\functions.py:289
 #, python-format
 msgid "Empty list and '%(class_name)s.allow_empty' is False."
 msgstr "Liste vide et  '%(class_name)s.allow_empty' est faux."
 
-#: .\nobinobi_core\functions.py:337
+#: .\functions.py:338
 msgid "This field is required."
 msgstr "Ce champ est obligatoire."
 
-#: .\nobinobi_core\models.py:23 .\nobinobi_core\models.py:38
+#: .\models.py:24 .\models.py:40
 msgid "Name"
 msgstr "Nom"
 
-#: .\nobinobi_core\models.py:24
+#: .\models.py:25
 msgid "Date"
 msgstr "Date"
 
-#: .\nobinobi_core\models.py:28
+#: .\models.py:30
 msgid "Holiday"
 msgstr "Jour férié"
 
-#: .\nobinobi_core\models.py:29
+#: .\models.py:31
 msgid "Holidays"
 msgstr "Jours fériés"
 
-#: .\nobinobi_core\models.py:39
+#: .\models.py:41
 msgid "Short code"
 msgstr "Nom abrégé"
 
-#: .\nobinobi_core\models.py:43 .\nobinobi_core\models.py:57
+#: .\models.py:45 .\models.py:61
 msgid "Organisation"
 msgstr "Organisation"
 
-#: .\nobinobi_core\models.py:44
+#: .\models.py:46
 msgid "Organisations"
 msgstr "Organisations"
 
-#: .\nobinobi_core\models.py:53
+#: .\models.py:55
 msgid "From date"
 msgstr "Date de début"
 
-#: .\nobinobi_core\models.py:54
+#: .\models.py:56
 msgid "End date"
 msgstr "Date de fin"
 
-#: .\nobinobi_core\models.py:55
+#: .\models.py:57
 msgid "Description"
 msgstr "Description"
 
-#: .\nobinobi_core\models.py:64
+#: .\models.py:68
 msgid "Organisation closure"
 msgstr "Fermeture de l’organisation"
 
-#: .\nobinobi_core\models.py:65
+#: .\models.py:69
 msgid "Organisation closures"
 msgstr "Fermetures des organisations"
 
-#: .\nobinobi_core\templates\includes\messages.html:10
+#: .\templates\includes\messages.html:10
 msgid "Close"
 msgstr "Fermer"
 
-#: .\nobinobi_core\templates\nobinobi_core\add_official_holiday.html:10
-#: .\nobinobi_core\views.py:41
+#: .\templates\nobinobi_core\add_official_holiday.html:10 .\views.py:40
 msgid "Add official holidays"
 msgstr "Ajouter les jours fériés officiels"
 
-#: .\nobinobi_core\templates\nobinobi_core\add_official_holiday.html:12
-msgid "This form allows you to add the holidays of the current year."
-msgstr "Ce formulaire vous permet d'ajouter les jours fériés de l'année en cours."
+#: .\templates\nobinobi_core\add_official_holiday.html:12
+msgid "This form allows you to add the holidays for the selected year."
+msgstr "Ce formulaire vous permet d’ajouter les jours fériés pour l’année sélectionnée."
 
-#: .\nobinobi_core\views.py:51
+#: .\views.py:56
 #, python-brace-format
 msgid "The day {0} ({1}) has been added to the database."
 msgstr "Le jour {0} ({1}) a été ajouté à la base de données."
 
-#: .\nobinobi_core\views.py:53
+#: .\views.py:60
 #, python-brace-format
 msgid "The day {0} ({1}) already exists in the database."
 msgstr "Le jour {0} ({1}) existe déjà dans la base de données."
