@@ -11,10 +11,11 @@ django-crispy-forms = ">=2.0"
 crispy-bootstrap5 = ">=0.7"
 
 [dev-packages]
-invoke=">=1.6.0"
-twine=">=3.4.2"
-wheel=">=0.37.0"
-zest = {releaser = ">=6.22.1"}
+invoke = ">=1.6.0"
+twine = ">=3.4.2"
+wheel = ">=0.37.0"
+zest = { releaser = ">=6.22.1" }
+bumpversion = ">=0.6.0"
 
 [requires]
 python_version = "3.11"
