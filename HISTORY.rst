@@ -3,6 +3,12 @@
 History
 -------
 
+0.1.4.7 (2023-06-12)
+++++++++++++++++++++++
+
+* 5c74e84 - Update for new cripsy form version
+* Update requirements
+
 0.1.4.6 (2021-09-16)
 ++++++++++++++++++++++
 
