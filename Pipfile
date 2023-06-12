@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = ">=4.0"
+django-model-utils = ">=4.1.1"
+arrow = ">=1.1.1"
+django-crispy-forms = ">=2.0"
+crispy-bootstrap5 = ">=0.7"
+
+[dev-packages]
+invoke=">=1.6.0"
+twine=">=3.4.2"
+wheel=">=0.37.0"
+zest = {releaser = ">=6.22.1"}
+
+[requires]
+python_version = "3.11"
