@@ -38,11 +38,16 @@ class InlineCheckboxesImage(Field):
     InlineCheckboxes('field_name')
     """
     template = "layout/checkboxselectmultiple_inline_image.html"
-    TEMPLATE_PACK = "bootstrap3"
+    TEMPLATE_PACK = "bootstrap4"
 
-    def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, **kwargs):
+    def render(self, form, context, template_pack=TEMPLATE_PACK, extra_context=None, **kwargs):
+        if extra_context is None:
+            extra_context = {}
+        if self.wrapper_class:
+            extra_context["wrapper_class"] = self.wrapper_class
+
         return super(InlineCheckboxesImage, self).render(
-            form, form_style, context, template_pack=template_pack,
+            form, context, template_pack=template_pack,
             extra_context={'inline_class': 'inline'}
         )
 
@@ -54,11 +59,16 @@ class InlineRadiosImage(Field):
         InlineRadios('field_name')
     """
     template = "layout/radioselect_inline_image.html"
-    TEMPLATE_PACK = "bootstrap3"
+    TEMPLATE_PACK = "bootstrap4"
 
-    def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, **kwargs):
+    def render(self, form, context, template_pack=TEMPLATE_PACK, extra_context=None, **kwargs):
+        if extra_context is None:
+            extra_context = {}
+        if self.wrapper_class:
+            extra_context["wrapper_class"] = self.wrapper_class
+
         return super(InlineRadiosImage, self).render(
-            form, form_style, context, template_pack=template_pack,
+            form, context, template_pack=template_pack,
             extra_context={'inline_class': 'inline'}
         )
 
@@ -70,9 +80,13 @@ class InlineRadiosCol(Field):
     InlineRadios('field_name')
     """
     template = "layout/radioselect_inline.html"
-    TEMPLATE_PACK = "bootstrap3"
+    TEMPLATE_PACK = "bootstrap4"
 
-    def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, **kwargs):
+    def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, extra_context=None, **kwargs):
+        if extra_context is None:
+            extra_context = {}
+        if self.wrapper_class:
+            extra_context["wrapper_class"] = self.wrapper_class
         return super(InlineRadiosCol, self).render(
             form, form_style, context, template_pack=template_pack,
             extra_context={'inline_class': 'inline col-lg-3 col-md-3 resetColLabel'}
@@ -86,11 +100,16 @@ class InlineCheckboxesCol(Field):
     InlineRadios('field_name')
     """
     template = "layout/checkboxselectmultiple_inline.html"
-    TEMPLATE_PACK = "bootstrap3"
+    TEMPLATE_PACK = "bootstrap4"
 
-    def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, **kwargs):
+    def render(self, form, context, template_pack=TEMPLATE_PACK, extra_context=None, **kwargs):
+        if extra_context is None:
+            extra_context = {}
+        if self.wrapper_class:
+            extra_context["wrapper_class"] = self.wrapper_class
+
         return super(InlineCheckboxesCol, self).render(
-            form, form_style, context, template_pack=template_pack,
+            form, context, template_pack=template_pack,
             extra_context={'inline_class': 'inline col-lg-4 col-md-4 resetColLabel'}
         )
 
@@ -102,9 +121,13 @@ class InlineCheckboxesColAct(Field):
     InlineRadios('field_name')
     """
     template = "layout/checkboxselectmultiple_inline_act.html"
-    TEMPLATE_PACK = "bootstrap3"
+    TEMPLATE_PACK = "bootstrap4"
 
-    def render(self, form, form_style, context, template_pack=TEMPLATE_PACK, **kwargs):
+    def render(self, form, context, template_pack=TEMPLATE_PACK, extra_context=None, **kwargs):
+        if extra_context is None:
+            extra_context = {}
+        if self.wrapper_class:
+            extra_context["wrapper_class"] = self.wrapper_class
         return super(InlineCheckboxesColAct, self).render(
             form, form_style, context, template_pack=template_pack,
             extra_context={'inline_class': 'inline col-lg-4 col-md-4 resetColLabel'}
