@@ -3,6 +3,12 @@
 History
 -------
 
+0.1.4.9 (2023-11-29)
+++++++++++++++++++++++
+
+* 7f61bc5 - fux bug with new crispy_forms
+* update requirements
+
 0.1.4.8 (2023-06-15)
 ++++++++++++++++++++++
 
